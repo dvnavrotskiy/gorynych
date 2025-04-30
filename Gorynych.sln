@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gorynych.api", "gorynych.api\gorynych.api.csproj", "{0314CE09-2EEA-4A98-8759-1A64751F22C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gorynych.common", "gorynych.common\gorynych.common.csproj", "{7CFF1F11-AD7E-4769-855A-B6345552D020}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gorynych.auth", "gorynych.auth\gorynych.auth.csproj", "{4637F679-1D3F-4313-A2F3-F9425A33C5DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{304A8948-563A-461C-8577-97BF6DAB6C05}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\Users.json = Resources\Users.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gorynych.mq", "gorynych.mq\gorynych.mq.csproj", "{733E985F-FF5C-46CA-96FC-52E992F00A6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0314CE09-2EEA-4A98-8759-1A64751F22C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0314CE09-2EEA-4A98-8759-1A64751F22C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0314CE09-2EEA-4A98-8759-1A64751F22C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0314CE09-2EEA-4A98-8759-1A64751F22C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CFF1F11-AD7E-4769-855A-B6345552D020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CFF1F11-AD7E-4769-855A-B6345552D020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CFF1F11-AD7E-4769-855A-B6345552D020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CFF1F11-AD7E-4769-855A-B6345552D020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4637F679-1D3F-4313-A2F3-F9425A33C5DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4637F679-1D3F-4313-A2F3-F9425A33C5DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4637F679-1D3F-4313-A2F3-F9425A33C5DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4637F679-1D3F-4313-A2F3-F9425A33C5DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{733E985F-FF5C-46CA-96FC-52E992F00A6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{733E985F-FF5C-46CA-96FC-52E992F00A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{733E985F-FF5C-46CA-96FC-52E992F00A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{733E985F-FF5C-46CA-96FC-52E992F00A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

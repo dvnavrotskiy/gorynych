@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Dapper" Version="2.1.66" />
+        <PackageReference Include="FluentMigrator" Version="7.1.0" />
+        <PackageReference Include="FluentMigrator.Runner" Version="7.1.0" />
+        <PackageReference Include="FluentMigrator.Runner.SQLite" Version="7.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3" />
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.4" />
+        <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.12.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="8.1.1" />
+        <PackageReference Include="OpenTelemetry.Api" Version="1.12.0" />
+        <PackageReference Include="OpenTelemetry.Exporter.Jaeger" Version="1.5.1" />
+        <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.12.0" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.11.1" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.11.1" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.SqlClient" Version="1.0.0-rc8" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\gorynych.auth\gorynych.auth.csproj" />
+      <ProjectReference Include="..\gorynych.common\gorynych.common.csproj" />
+      <ProjectReference Include="..\gorynych.mq\gorynych.mq.csproj" />
+    </ItemGroup>
+
+</Project>

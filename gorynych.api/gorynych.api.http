@@ -1,0 +1,6 @@
+@gorynych.api_HostAddress = http://localhost:5285
+
+GET {{gorynych.api_HostAddress}}/
+Accept: application/json
+
+###
