@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using Dapper;
 using gorynych.api.Contracts;
-using gorynych.api.Services;
 using gorynych.mq;
 using Microsoft.Data.Sqlite;
 
@@ -53,7 +52,7 @@ public class SqlLiteMessageRepo(string connectionString) : IMessageRepo
 
     private class MessageDto
     {
-        public string Message { get; set; }
-        public string Timestamp { get; set; }
+        public required string Message { get; init; }
+        public required string Timestamp { get; init; }
     }
 }

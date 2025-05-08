@@ -48,11 +48,12 @@ public static class ServiceHelper
         var repo = cfg.GetValue<bool>("InMemoryMessages")
             ? new InMemoryMessageRepo()
             : SqlFactory();
+
+        services.AddSingleton<IMessageRepo>(repo);
         
-        var svc = new GorMsgService(repo);
         return services
-            .AddSingleton<IGorMsgWriter>(svc)
-            .AddSingleton(svc);
+            .AddSingleton<IGorMsgWriter, GorMsgService>()
+            .AddSingleton<GorMsgService>();
 
         IMessageRepo SqlFactory()
         {

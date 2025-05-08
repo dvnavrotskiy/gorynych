@@ -1,17 +1,19 @@
-﻿using System.Diagnostics;
+﻿using gorynych.api.Commands;
 using gorynych.api.Contracts;
 using gorynych.api.Services;
 using gorynych.mq;
-using gorynych.mq.Publishers;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+
+#pragma warning disable CS1573 // For CancellationToken
+// Parameter has no matching param tag in the XML comment (but other parameters do)
 
 namespace gorynych.api.Controllers;
 
 [ApiController, Route("api/pubsub")]
 public class PubSubController(
     ILogger<PubSubController> logger,
-    SimplePublisher simplePublisher,
-    AdvancedPublisher advancedPublisher,
+    IMediator mediator,
     GorMsgService service
     )
     : ControllerBase
@@ -25,8 +27,13 @@ public class PubSubController(
     public async Task<IActionResult> Publish(string message, CancellationToken ct)
     {
         logger.LogInformation($"Publish message: {message}");
-        
-        await simplePublisher.Publish(new GorMsg {Message = message, Timestamp = DateTimeOffset.UtcNow}, ct);
+
+        await mediator.Send(
+            new PublishMessageCommand(
+                new GorMsg { Message = message, Timestamp = DateTimeOffset.UtcNow }
+            ),
+            ct
+        );
 
         return Ok();
     }
@@ -40,9 +47,13 @@ public class PubSubController(
     public async Task<IActionResult> AdvancedPublish(string message, CancellationToken ct)
     {
         logger.LogInformation($"Advanced publish message: {message}");
-        
-        await advancedPublisher.Publish(new GorMsg {Message = message, Timestamp = DateTimeOffset.UtcNow}, ct);
 
+        await mediator.Send(
+            new AdvancedPublishMessageCommand(
+                new GorMsg { Message = message, Timestamp = DateTimeOffset.UtcNow }
+            ),
+            ct
+        );
         return Ok();
     }
 

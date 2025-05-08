@@ -1,5 +1,4 @@
 using System.Reflection;
-using gorynych.api.Dal;
 using gorynych.api.Dal.Migrations;
 using gorynych.api.Helpers;
 using gorynych.mq.Subscribers;
@@ -38,7 +37,8 @@ builder.Services
     .AddSimplePublisher()
     .AddSimpleSubscriber()
     .AddAdvancedPublisher()
-    .AddAdvancedSubscriber();
+    .AddAdvancedSubscriber()
+    .AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 var app = builder.Build();
 

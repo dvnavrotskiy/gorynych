@@ -16,6 +16,7 @@
         <PackageReference Include="FluentMigrator" Version="7.1.0" />
         <PackageReference Include="FluentMigrator.Runner" Version="7.1.0" />
         <PackageReference Include="FluentMigrator.Runner.SQLite" Version="7.1.0" />
+        <PackageReference Include="MediatR" Version="12.5.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3" />
         <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.4" />
         <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.12.0" />

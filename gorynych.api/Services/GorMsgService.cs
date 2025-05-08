@@ -1,24 +1,25 @@
-﻿using gorynych.api.Contracts;
-using gorynych.api.Dal;
+﻿using gorynych.api.Commands;
+using gorynych.api.Contracts;
+using gorynych.api.Queries;
 using gorynych.mq;
+using MediatR;
 
 namespace gorynych.api.Services;
 
-public class GorMsgService(IMessageRepo repo) : IGorMsgWriter
+public class GorMsgService(IMediator mediator) : IGorMsgWriter
 {
-
     public async Task Write(GorMsg message, CancellationToken ct = default)
     {
-        await repo.Write(message, ct);
+        await mediator.Send(new WriteMessageCommand(message), ct);
     }
     
     public async Task<MessagesResponse> GetMessages(Paging request, CancellationToken ct = default)
     {
-        var count = await repo.Count(ct);
+        var count = await mediator.Send(new CountMessagesQuery(), ct);
 
         request.Normalize(count);
         
-        var items = await repo.GetMessages(request, ct);
+        var items = await mediator.Send(new ListMessagesQuery(request), ct);
         return new MessagesResponse
         {
             Messages = items,
