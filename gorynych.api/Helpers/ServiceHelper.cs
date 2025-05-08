@@ -49,11 +49,11 @@ public static class ServiceHelper
             ? new InMemoryMessageRepo()
             : SqlFactory();
 
-        services.AddSingleton<IMessageRepo>(repo);
+        services.AddSingleton(repo);
         
         return services
-            .AddSingleton<IGorMsgWriter, GorMsgService>()
-            .AddSingleton<GorMsgService>();
+            .AddSingleton<IGorMsgWriter, GorMsgWriterService>()
+            .AddSingleton<IGorMsgReader, GorMsgReaderService>();
 
         IMessageRepo SqlFactory()
         {

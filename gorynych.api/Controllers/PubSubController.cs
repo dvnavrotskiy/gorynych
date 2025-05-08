@@ -14,7 +14,7 @@ namespace gorynych.api.Controllers;
 public class PubSubController(
     ILogger<PubSubController> logger,
     IMediator mediator,
-    GorMsgService service
+    IGorMsgReader msgReader
     )
     : ControllerBase
 {
@@ -64,7 +64,7 @@ public class PubSubController(
     [HttpGet("list")]
     public async Task<IActionResult> List([FromQuery]Paging request, CancellationToken ct)
     {
-        var result = await service.GetMessages(request, ct);
+        var result = await msgReader.GetMessages(request, ct);
         return Ok(result);
     }
 }
