@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gorynych.mq", "gorynych.mq\gorynych.mq.csproj", "{733E985F-FF5C-46CA-96FC-52E992F00A6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gorynych.tests", "gorynych.tests\gorynych.tests.csproj", "{A8C123E6-DCCC-44AE-8005-5C61C2F64343}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,5 +37,9 @@ Global
 		{733E985F-FF5C-46CA-96FC-52E992F00A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{733E985F-FF5C-46CA-96FC-52E992F00A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{733E985F-FF5C-46CA-96FC-52E992F00A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8C123E6-DCCC-44AE-8005-5C61C2F64343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C123E6-DCCC-44AE-8005-5C61C2F64343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8C123E6-DCCC-44AE-8005-5C61C2F64343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C123E6-DCCC-44AE-8005-5C61C2F64343}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
