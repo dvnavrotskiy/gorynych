@@ -1,6 +1,7 @@
 ﻿using gorynych.api.Commands;
 using gorynych.api.Contracts;
 using gorynych.api.Services;
+using gorynych.common;
 using gorynych.mq;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +19,7 @@ public class PubSubController(
     )
     : ControllerBase
 {
+   
     /// <summary>
     /// Опубликовать сообщение
     /// </summary>
@@ -26,11 +28,12 @@ public class PubSubController(
     [HttpPost("publish")]
     public async Task<IActionResult> Publish(string message, CancellationToken ct)
     {
+        var requestId = GetRequestId();
         logger.LogInformation($"Publish message: {message}");
 
         await mediator.Send(
             new PublishMessageCommand(
-                new GorMsg { Message = message, Timestamp = DateTimeOffset.UtcNow }
+                new GorMsg { RequestId = Guid.Parse(requestId), Message = message, Timestamp = DateTimeOffset.UtcNow }
             ),
             ct
         );
@@ -46,11 +49,12 @@ public class PubSubController(
     [HttpPost("advanced_publish")]
     public async Task<IActionResult> AdvancedPublish(string message, CancellationToken ct)
     {
+        var requestId = GetRequestId();
         logger.LogInformation($"Advanced publish message: {message}");
 
         await mediator.Send(
             new AdvancedPublishMessageCommand(
-                new GorMsg { Message = message, Timestamp = DateTimeOffset.UtcNow }
+                new GorMsg { RequestId = Guid.Parse(requestId), Message = message, Timestamp = DateTimeOffset.UtcNow }
             ),
             ct
         );
@@ -67,4 +71,8 @@ public class PubSubController(
         var result = await msgReader.GetMessages(request, ct);
         return Ok(result);
     }
+    
+    private string GetRequestId()
+        => HttpContext.Request.Headers[StringConstants.XRequestId].FirstOrDefault()
+           ?? Guid.NewGuid().ToString();
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using gorynych.common;
+using Microsoft.AspNetCore.Mvc;
 
 namespace gorynych.api.Helpers;
 
@@ -14,7 +15,7 @@ public sealed class GaMiddleware(RequestDelegate next, ILogger<GaMiddleware> log
             requestId = context.Request.Headers[XRequestId].FirstOrDefault()
                         ?? Guid.NewGuid().ToString();
             using var scope = logger.BeginScope(
-                new Dictionary<string, object> { [XRequestId] = requestId }
+                new LogDictionary<string, object> { [XRequestId] = requestId }
             );
             context.Request.Headers[XRequestId] = requestId;
             await next(context);
