@@ -44,11 +44,10 @@ var app = builder.Build();
 
 MigrationRunner.Up(app.Configuration);
 
-var svc = app.Services.GetService<SimpleSubscriber>();
-svc?.Subscribe();
-
-var adv = app.Services.GetService<AdvancedSubscriber>();
-adv?.Subscribe();
+var simpleSubscriber = app.Services.GetRequiredService<SimpleSubscriber>();
+simpleSubscriber.Subscribe();
+var advancedSubscriber = app.Services.GetRequiredService<AdvancedSubscriber>();
+advancedSubscriber.Subscribe();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
