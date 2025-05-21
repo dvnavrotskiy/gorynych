@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using EasyNetQ;
 using gorynych.api.Commands;
 using gorynych.api.Contracts;
 using gorynych.api.Dal;
@@ -13,13 +14,13 @@ using Xunit;
 
 namespace gorynych.tests;
 
-public class ComponentTests
+public class IntegrationTest : IDisposable
 {
     private const string RabbitCs = "host=localhost";
 
     private readonly ServiceProvider serviceProvider;
 
-    public ComponentTests()
+    public IntegrationTest()
     {
         var services = new ServiceCollection();
 
@@ -74,7 +75,7 @@ public class ComponentTests
     
     [Theory]
     [MemberData(nameof(Data))]
-    public async Task SimpleUseCaseTest(CommandFactory commandFactory)
+    public async Task UseCaseTest(CommandFactory commandFactory)
     {
         var ct = CancellationToken.None;
         
@@ -92,7 +93,7 @@ public class ComponentTests
         await mediator.Send(commandFactory.GetCommand(msg), ct);
         
         var p = new Paging { Page = 1, PageSize = 10 };
-
+        
         IList<GorMsg> msgList = new List<GorMsg>();
         for (var i = 0; i < 10; ++i)
         {
@@ -102,5 +103,11 @@ public class ComponentTests
             await Task.Delay(100, ct);
         }
         Assert.Contains(guid, msgList.Select(x => x.RequestId));
+    }
+
+    public void Dispose()
+    {
+        var bus = serviceProvider.GetRequiredService<IBus>();
+        bus.Dispose();
     }
 }

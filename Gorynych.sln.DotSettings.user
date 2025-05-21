@@ -11,6 +11,7 @@
     &lt;TestId&gt;xUnit::A8C123E6-DCCC-44AE-8005-5C61C2F64343::net8.0::gorynych.tests.PagingTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::A8C123E6-DCCC-44AE-8005-5C61C2F64343::net8.0::gorynych.tests.ComponentTests.Test&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::A8C123E6-DCCC-44AE-8005-5C61C2F64343::net8.0::gorynych.tests.ComponentTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::A8C123E6-DCCC-44AE-8005-5C61C2F64343::net8.0::gorynych.tests.IntegrationTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=gorynych/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
